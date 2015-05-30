@@ -28,4 +28,10 @@ describe Luhn do
     Luhn.valid?(1996008).must_equal true
     Luhn.valid?(1230).must_equal true
   end
+
+  it "invalidates invalid numbers" do
+    Luhn.valid?(1234567890123456).must_equal false
+    Luhn.valid?(1996009).must_equal false
+    Luhn.valid?(1231).must_equal false
+  end
 end
